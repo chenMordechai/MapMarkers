@@ -3,6 +3,7 @@ import {APIProvider ,Map,AdvancedMarker,Pin,InfoWindow } from "@vis.gl/react-goo
 import {API_KEY,MAP_ID} from '../../dist/dist'
 
 import { mapService } from "../services/map.service-local.js"
+import {Markers} from '../cmps/Markers'
 
 export function MapIndex (){
     const [position , setPosition] = useState({lat:31.771959 , lng:35.217018})
@@ -42,7 +43,7 @@ export function MapIndex (){
     return (
       <APIProvider apiKey={API_KEY}>
         <div style={{width: '100vw',height: '100vh'}}> 
-          <Map onClick={onMapClicked} zoom={9} center={position} mapId={MAP_ID}>
+          <Map onClick={onMapClicked} zoom={9} center={{lat:31.771959 , lng:35.217018}} mapId={MAP_ID}>
            <AdvancedMarker position={position} onClick={()=>setOpen(true)}>
               <Pin background={"grey"} borderColor={"green"} glyphColor={"purple"}/>
            </AdvancedMarker>
@@ -59,19 +60,4 @@ export function MapIndex (){
      </APIProvider>
     )
 
-}
-
-const Markers = ({positions,onMarkerClicked})=>{
-  console.log('positions:', positions)
- 
-  return(
-  <section>
-    {positions.map(position=> <AdvancedMarker key={position.lat} 
-    position={position} onClick={()=>onMarkerClicked(position._id)}>
-      <Pin background={"grey"} borderColor={"green"} glyphColor={"purple"}/>
-    </AdvancedMarker>
-
-    )}
-  </section>
-  )
 }
