@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { CarList } from '../cmps/CarList.jsx'
 import { CarFilter } from '../cmps/CarFilter.jsx'
-import { carService } from "../services/car.service-local"
+import { carService } from "../services/car.service-local.js"
 
 export function CarIndex() {
 

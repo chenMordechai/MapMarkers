@@ -1,10 +1,10 @@
 import './assets/style/main.css'
-import { CarIndex } from './pages/carIndex'
+import { MapIndex } from './pages/MapIndex'
 
 export function App() {
   return (
     <section>
-      <CarIndex />
+      <MapIndex />
     </section>
   )
 }
